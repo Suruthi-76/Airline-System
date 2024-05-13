@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Airline System</title>
+</head>
+<style>
+    body {
+            font-family: sans-serif;
+            background-image: linear-gradient(100deg, rgb(8, 61, 125) 20%, rgba(22, 83, 85, 0.5) 70%);
+        }
+form{
+    position:absolute;
+    left:500px;
+    padding:20px;
+}
+input{
+    width:200px;
+    height:40px;
+}
+select{
+    width:200px;
+    height:40px;
+}
+
+</style>
+<body>
+<form action="SaveServlet" method="post"> <h1>AirLine Ticket Booking</h1>
+        <table>
+            <tr><td>Name:</td><td><input type="text" name="name"/></td></tr>  
+<tr><td>Phone Number:</td><td><input type="text" name="phonenumber"/></td></tr>  
+<tr><td>Email:</td><td><input type="email" name="email"/></td></tr>  
+<tr><td>From:</td><td>  
+<select name="afro" style="width:150px">  
+<option>India</option>  
+<option>USA</option>  
+<option>UK</option>  
+<option>China</option>  
+<option>Japan</option> 
+<option>Nepal</option> 
+<option>America</option> 
+<option>Pakisatan</option> 
+<option>Australia</option> 
+<option>Antratica</option> 
+</select>  
+</td></tr>  
+<tr><td>To:</td><td>  
+    <select name="ato" style="width:150px">  
+    <option>India</option>  
+    <option>USA</option>  
+    <option>UK</option>  
+    <option>China</option>  
+    <option>Japan</option> 
+    <option>Nepal</option> 
+    <option>America</option> 
+    <option>Pakisatan</option> 
+    <option>Australia</option> 
+    <option>Antratica</option> 
+    </select>  
+    </td></tr> 
+    <td>Gender:</td><td>  
+        <select name="gender" style="width:150px">  
+        <option>Female</option> 
+        <option>Male</option> 
+        <option>Other</option> 
+        </select>  
+        </td></tr> 
+    <tr><td>Date:</td><td><input type="date" name="adate"/></td></tr> 
+    <tr><td>Time:</td><td><input type="time" name="atime"/></td></tr> 
+
+<tr><td colspan="2"><input type="submit" value="Ticket Confirmation"/></td></tr>  
+
+
+        </table>
+        <a href="ViewServlet">view Ticket Details</a>
+    </form>
+     
+</body>
+</html>
