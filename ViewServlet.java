@@ -24,77 +24,66 @@ public class ViewServlet extends HttpServlet {
         out.println("<style>");
         out.println("body {");
         out.println("    font-family: sans-serif;");
-        out.println("    background-image: linear-gradient(100deg, rgb(8, 61, 125) 20%, rgba(22, 83, 85, 0.5) 70%);");
-        out.println("    color: black;");
-        out.println("    padding: 20px;");
+        out.println("    background-image: linear-gradient(70deg, rgb(8, 61, 125) 20%, rgba(22, 83, 85, 0.5) 70%);");
         out.println("}");
         out.println("form {");
-        out.println("    background-color: rgba(255, 255, 255, 0.1);");
+        out.println("    position: absolute;");
+        out.println("    left: 500px;");
         out.println("    padding: 20px;");
-        out.println("    margin: 20px auto;");
-        out.println("    border: 1px solid white;");
-        out.println("    border-radius: 8px;");
-        out.println("    width: 30%;");
-        out.println("    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);");
-        out.println("}");
-        out.println("label {");
-        out.println("    font-weight: bold;");
-        out.println("    display: block;");
-        out.println("    margin: 10px 0 5px;");
         out.println("}");
         out.println("input {");
-        out.println("    width: calc(100% - 20px);");
-        out.println("    padding: 10px;");
-        out.println("    margin-bottom: 10px;");
-        out.println("    border-radius: 4px;");
-        out.println("    border: 1px solid #ccc;");
+        out.println("    width: 200px;");
+        out.println("    height: 40px;");
+        out.println("}");
+        out.println("select {");
+        out.println("    width: 200px;");
+        out.println("    height: 40px;");
+        out.println("}");
+        out.println("table {");
+        out.println("    width: 100%;");
+        out.println("    border-collapse: collapse;");
+        out.println("    margin-top: 20px;");
+        out.println("}");
+        out.println("th, td {");
+        out.println("    border: 1px solid #ddd;");
+        out.println("    padding: 8px;");
+        out.println("    text-align: center;");
+        out.println("}");
+        out.println("th {");
+        out.println("    background-color: rgb(8, 61, 125);");
+        out.println("    color: white;");
         out.println("}");
         out.println("a {");
         out.println("    text-decoration: none;");
-        out.println("    color: #00f;");
+        out.println("    color: red;");
         out.println("}");
         out.println("</style>");
         out.println("</head>");
         out.println("<body>");
         
-        out.println("<a href='index.html' style='color:white;'>Book Another Ticket</a>");
-        out.println("<h1 style='text-align:center;'>List of Tickets</h1>");
+        out.println("<a href='index.html'>Book Another Ticket</a>");
+        out.println("<h1 style='text-align:center; color:white;'>List of Tickets</h1>");
         
         List<Air> list = AirDao.getAllEmployees();
         
+        out.print("<table>");
+        out.print("<tr><th>Id</th><th>Name</th><th>Phone Number</th><th>Email</th><th>From</th><th>Destination</th><th>Gender</th><th>Date</th><th>Time</th><th>Change</th><th>Cancel</th></tr>");
         for (Air e : list) {
-            out.println("<form>");
-            out.println("<label>Id</label>");
-            out.println("<input type='text' value='" + e.getId() + "' readonly>");
-            
-            out.println("<label>Name</label>");
-            out.println("<input type='text' value='" + e.getName() + "' readonly>");
-            
-            out.println("<label>Phone Number</label>");
-            out.println("<input type='text' value='" + e.getPhonenumber() + "' readonly>");
-            
-            out.println("<label>Email</label>");
-            out.println("<input type='text' value='" + e.getEmail() + "' readonly>");
-            
-            out.println("<label>From</label>");
-            out.println("<input type='text' value='" + e.getAfro() + "' readonly>");
-            
-            out.println("<label>Destination</label>");
-            out.println("<input type='text' value='" + e.getAto() + "' readonly>");
-            
-            out.println("<label>Gender</label>");
-            out.println("<input type='text' value='" + e.getGender() + "' readonly>");
-            
-            out.println("<label>Date</label>");
-            out.println("<input type='text' value='" + e.getAdate() + "' readonly>");
-            
-            out.println("<label>Time</label>");
-            out.println("<input type='text' value='" + e.getAtime() + "' readonly>");
-            
-            out.println("<a href='EditServlet?id=" + e.getId() + "'>Update</a> | ");
-            out.println("<a href='DeleteServlet?id=" + e.getId() + "'>Cancel</a>");
-            out.println("</form>");
+            out.print("<tr>");
+            out.print("<td>" + e.getId() + "</td>");
+            out.print("<td>" + e.getName() + "</td>");
+            out.print("<td>" + e.getPhonenumber() + "</td>");
+            out.print("<td>" + e.getEmail() + "</td>");
+            out.print("<td>" + e.getAfro() + "</td>");
+            out.print("<td>" + e.getAto() + "</td>");
+            out.print("<td>" + e.getGender() + "</td>");
+            out.print("<td>" + e.getAdate() + "</td>");
+            out.print("<td>" + e.getAtime() + "</td>");
+            out.print("<td><a href='EditServlet?id=" + e.getId() + "'>Update</a></td>");
+            out.print("<td><a href='DeleteServlet?id=" + e.getId() + "'>Cancel</a></td>");
+            out.print("</tr>");
         }
+        out.print("</table>");
         
         out.println("</body>");
         out.println("</html>");
